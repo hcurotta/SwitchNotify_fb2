@@ -1,0 +1,19 @@
+Subscribing to FB Updates
+
+Step 1
+
+Retrieve App Auth Token
+https://graph.facebook.com/oauth/access_token?client_id=465454280146210&client_secret=969ae2be2b8212715f0a5c299f062192&grant_type=client_credentials
+
+Step 2
+Check subscriptions
+curl "https://graph.facebook.com/<appid>/subscriptions?access_token=465454280146210|cvSkeD8otfLqTCbXI5NT46O5RyA"
+
+Step 3
+Subscribe using a post with these params
+
+curl -F 'object=user' \
+-F 'callback_url=<callback url you have to implement>' \
+-F 'fields=checkins' \
+-F 'verify_token=<secret token>' \
+"https://graph.facebook.com/465454280146210/subscriptions?access_token=<access token from (1)"
